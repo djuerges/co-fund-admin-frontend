@@ -3,6 +3,8 @@
     <span>Custom Toolbar</span>
     <a mat-button routerLink="/places" routerLinkActive="active">Places</a>
     <a mat-button routerLink="/transactions" routerLinkActive="active">Transactions</a>
+    <span class="spacer"></span>
+    <a mat-button (click)="logout()">Logout</a>
   </mat-toolbar-row>
 </mat-toolbar>
 
