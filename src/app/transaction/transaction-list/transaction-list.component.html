@@ -11,11 +11,18 @@
 
   <ng-container matColumnDef="place">
     <mat-header-cell *matHeaderCellDef>Place</mat-header-cell>
-    <mat-cell *matCellDef="let row">{{row.getAddress()}}</mat-cell>
+    <mat-cell *matCellDef="let row">
+      <cofund-place-address [place]="row.place"></cofund-place-address>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Place</mat-header-cell>
+    <mat-cell *matCellDef="let row"><mat-select [value]="row.status" (valueChange)="changeStatus(row)"></mat-select></mat-cell>
   </ng-container>
 
   <!-- Header and Row Declarations -->
-  <mat-header-row *matHeaderRowDef="['id', 'amount', 'place']"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: ['id', 'amount', 'place']"></mat-row>
+  <mat-header-row *matHeaderRowDef="['id', 'amount', 'place', 'status']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['id', 'amount', 'place', 'status']"></mat-row>
 </mat-table>
 

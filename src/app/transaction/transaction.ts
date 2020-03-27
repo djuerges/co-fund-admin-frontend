@@ -1,4 +1,4 @@
-export class Transaction {
+export interface Transaction {
   id: string;
   amount: number;
   place: {
@@ -9,16 +9,7 @@ export class Transaction {
     zip: string;
     city: string;
     country: string
-    status: 'NEW' | 'CONTACTED' | 'ACTIVE' | 'DELETED'
-  }
-
-  getAddress(): string {
-    return`${this.place.id}
-    ${this.place.placeId}
-    ${this.place.company}
-    ${this.place.address}
-    ${this.place.zip}
-    ${this.place.city}
-    `
-  }
+    status?: 'NEW' | 'CONTACTED' | 'ACTIVE' | 'DELETED'
+  };
+  status: 'PENDING' | 'ACCEPTED' | 'PAID' | 'DECLINED';
 }
