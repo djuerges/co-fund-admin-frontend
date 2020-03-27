@@ -5,6 +5,7 @@ export interface Place {
   address: string;
   zip: string;
   city: string;
+  country: string;
   created: Date;
   status: string;
 }
