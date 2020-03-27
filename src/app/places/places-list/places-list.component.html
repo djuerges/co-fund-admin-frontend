@@ -1,9 +1,33 @@
 <mat-table [dataSource]="data$ | async">
 
-  <!-- Title Definition -->
+  <!-- Company Definition -->
   <ng-container matColumnDef="company">
-    <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.company}} </mat-cell>
+    <mat-header-cell *matHeaderCellDef>Company</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <strong>{{row.company}}</strong><br>
+      <small>{{row.id}}</small>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Address Definition -->
+  <ng-container matColumnDef="address">
+    <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+
+      <a mat-icon-button [attr.href]="row | placeLink" target="_blank">
+        <mat-icon>place</mat-icon>
+      </a>
+
+      {{row.address}}<br>
+      {{row.zip}} {{row.city}}<br>
+      {{row.country}}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Status Definition -->
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.status}}</mat-cell>
   </ng-container>
 
   <!-- Header and Row Declarations -->
