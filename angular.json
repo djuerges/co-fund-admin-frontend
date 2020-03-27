@@ -130,7 +130,7 @@
   "defaultProject": "cofund-admin-frontend",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "coyo",
+      "prefix": "cofund",
       "styleext": "scss",
       "changeDetection": "OnPush"
     }
