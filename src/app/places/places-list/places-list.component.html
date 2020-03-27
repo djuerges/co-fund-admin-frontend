@@ -1,4 +1,5 @@
 <mat-table [dataSource]="data$ | async">
+
   <!-- Title Definition -->
   <ng-container matColumnDef="company">
     <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
@@ -6,6 +7,6 @@
   </ng-container>
 
   <!-- Header and Row Declarations -->
-  <mat-header-row *matHeaderRowDef="['company']"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: ['company']"></mat-row>
+  <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columns"></mat-row>
 </mat-table>

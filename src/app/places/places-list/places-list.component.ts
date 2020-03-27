@@ -11,12 +11,9 @@ import { Observable } from 'rxjs';
 })
 export class PlacesListComponent implements OnInit {
 
-  columns: string[] = ['company'];
-  data$: Observable<Place[]>;
+  readonly columns: string[] = ['company'];
 
-  dataSource: Place[] = [
-    {company: 'sdfdsf'} as unknown as Place
-  ];
+  data$: Observable<Place[]>;
 
   constructor(private placeService: PlaceService) { }
 
