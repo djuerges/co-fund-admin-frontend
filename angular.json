@@ -124,5 +124,12 @@
         }
       }
     }},
-  "defaultProject": "cofund-admin-frontend"
+  "defaultProject": "cofund-admin-frontend",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "coyo",
+      "styleext": "scss",
+      "changeDetection": "OnPush"
+    }
+  }
 }
