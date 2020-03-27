@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+$app-primary: mat-palette($mat-blue-grey, 700, 500, 900);
+$app-accent: mat-palette($mat-teal, 700, 500, 900);
+$app-theme: mat-light-theme($app-primary, $app-accent);
