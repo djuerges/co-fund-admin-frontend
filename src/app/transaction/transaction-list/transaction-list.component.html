@@ -1,0 +1,22 @@
+<p>transaction-list works!</p>
+<mat-table [dataSource]="list$ | async">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.amount}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="place">
+    <mat-header-cell *matHeaderCellDef>Place</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.getAddress()}}</mat-cell>
+  </ng-container>
+
+  <!-- Header and Row Declarations -->
+  <mat-header-row *matHeaderRowDef="['id', 'amount', 'place']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['id', 'amount', 'place']"></mat-row>
+</mat-table>
+
