@@ -17,8 +17,16 @@
   </ng-container>
 
   <ng-container matColumnDef="status">
-    <mat-header-cell *matHeaderCellDef>Place</mat-header-cell>
-    <mat-cell *matCellDef="let row"><mat-select [value]="row.status" (valueChange)="changeStatus(row)"></mat-select></mat-cell>
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+
+    <mat-cell *matCellDef="let row">
+      <mat-select [value]="row.status" (selectionChange)="changeStatus(row)">
+        <mat-option value="PENDING">Pending</mat-option>
+        <mat-option value="ACCEPTED">Accepted</mat-option>
+        <mat-option value="PAID">Paid</mat-option>
+        <mat-option value="DECLINED">Declined</mat-option>
+      </mat-select>
+    </mat-cell>
   </ng-container>
 
   <!-- Header and Row Declarations -->
