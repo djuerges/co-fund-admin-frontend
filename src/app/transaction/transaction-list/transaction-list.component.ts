@@ -19,4 +19,7 @@ export class TransactionListComponent implements OnInit {
    this.list$ = this.transactionService.getAll();
   }
 
+  changeStatus(transaction: Transaction) {
+    console.log(transaction);
+  }
 }

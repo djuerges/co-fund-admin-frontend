@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PlacesListComponent } from './places-list/places-list.component';
-import { MaterialModule } from '../material/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import {CommonModule} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
+import {NgModule} from '@angular/core';
+import {MaterialModule} from '../material/material.module';
+import {PlacesListComponent} from './places-list/places-list.component';
 
 @NgModule({
   declarations: [PlacesListComponent],
@@ -12,4 +12,5 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule
   ]
 })
-export class PlacesModule { }
+export class PlacesModule {
+}
