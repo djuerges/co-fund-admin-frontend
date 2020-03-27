@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import {TransactionModule} from './transaction/transaction.module';
 import { PlacesModule } from './places/places.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PlacesModule } from './places/places.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
+    AuthModule,
     TransactionModule,
     PlacesModule
   ],
