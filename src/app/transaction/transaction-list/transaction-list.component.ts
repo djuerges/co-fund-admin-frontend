@@ -11,12 +11,14 @@ import {TransactionService} from '../transaction.service';
 })
 export class TransactionListComponent implements OnInit {
 
-  list$: Observable<Transaction[]>;
+  readonly columns: string[] = ['status-color', 'id', 'place', 'amount', 'status'];
+
+  data$: Observable<Transaction[]>;
 
   constructor(private transactionService: TransactionService) { }
 
   ngOnInit(): void {
-   this.list$ = this.transactionService.getAll();
+   this.data$ = this.transactionService.getAll();
   }
 
   changeStatus(transaction: Transaction) {

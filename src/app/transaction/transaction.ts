@@ -1,15 +1,8 @@
+import {Place} from '../places/place';
+
 export interface Transaction {
   id: string;
   amount: number;
-  place: {
-    id: string;
-    placeId: string;
-    company: string;
-    address: string;
-    zip: string;
-    city: string;
-    country: string
-    status?: 'NEW' | 'CONTACTED' | 'ACTIVE' | 'DELETED'
-  };
+  place: Place;
   status: 'PENDING' | 'ACCEPTED' | 'PAID' | 'DECLINED';
 }

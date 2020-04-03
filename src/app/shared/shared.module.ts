@@ -4,13 +4,14 @@ import { PlaceAddressComponent } from './place-address/place-address.component';
 import { LayoutComponent } from './layout/layout.component';
 import { MaterialModule } from '../material/material.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { StatusIndicatorComponent } from './status-indicator/status-indicator.component';
 
 
 
 @NgModule({
-  declarations: [PlaceAddressComponent, LayoutComponent],
+  declarations: [PlaceAddressComponent, LayoutComponent, StatusIndicatorComponent],
   exports: [
-    PlaceAddressComponent, LayoutComponent
+    PlaceAddressComponent, LayoutComponent, StatusIndicatorComponent
   ],
   imports: [
     CommonModule,

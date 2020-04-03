@@ -15,3 +15,19 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+*,
+.mat-toolbar h1,
+.mat-toolbar h2,
+.mat-toolbar h3,
+.mat-toolbar h4,
+.mat-toolbar h5,
+.mat-toolbar h6
+.mat-typography h1,
+.mat-typography h2,
+.mat-typography h3,
+.mat-typography h4,
+.mat-typography h5,
+.mat-typography h6 { // no idea why the typography setting in the theme doesn't work on all components
+ font-family: $font-family;
+}

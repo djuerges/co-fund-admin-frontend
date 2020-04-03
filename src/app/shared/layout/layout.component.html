@@ -1,8 +1,11 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Custom Toolbar</span>
-    <a mat-button routerLink="/places" routerLinkActive="active">Places</a>
-    <a mat-button routerLink="/transactions" routerLinkActive="active">Transactions</a>
+    <img class="logo" src="assets/cofund.svg">
+    <h1 class="name">
+      Verwaltung
+    </h1>
+    <a mat-button routerLink="/places" routerLinkActive="active">Unternehmen</a>
+    <a mat-button routerLink="/transactions" routerLinkActive="active">Transaktionen</a>
     <span class="spacer"></span>
     <a mat-button (click)="logout()">Logout</a>
   </mat-toolbar-row>

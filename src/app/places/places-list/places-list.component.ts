@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Transaction} from '../../transaction/transaction';
 import { Place } from '../place';
 import { PlaceService } from '../place.service';
 import { Observable } from 'rxjs';
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class PlacesListComponent implements OnInit {
 
-  readonly columns: string[] = ['company', 'address', 'status'];
+  readonly columns: string[] = ['status-color', 'company', 'address', 'id', 'status'];
 
   data$: Observable<Place[]>;
 
@@ -19,5 +20,9 @@ export class PlacesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.data$ = this.placeService.getAll();
+  }
+
+  changeStatus(transaction: Transaction) {
+    console.log(transaction);
   }
 }

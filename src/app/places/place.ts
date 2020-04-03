@@ -7,5 +7,5 @@ export interface Place {
   city: string;
   country: string;
   created: Date;
-  status: string;
+  status: 'NEW' | 'CONTACTED' | 'ACTIVE' | 'BLOCKED';
 }
