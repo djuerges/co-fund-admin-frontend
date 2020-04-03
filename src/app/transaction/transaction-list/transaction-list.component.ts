@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {MatSelectChange} from '@angular/material/select';
 import {Observable} from 'rxjs';
 import {Transaction} from '../transaction';
 import {TransactionService} from '../transaction.service';
@@ -21,7 +22,24 @@ export class TransactionListComponent implements OnInit {
    this.data$ = this.transactionService.getAll();
   }
 
-  changeStatus(transaction: Transaction) {
-    console.log(transaction);
+  changeStatus(event: MatSelectChange, transaction: Transaction) {
+    const newStatus = event.value;
+    if (this.isAccepted(newStatus)) {
+      this.transactionService.accept(transaction).subscribe(acceptedTransaction => {
+        transaction = acceptedTransaction;
+      });
+    } else if (this.isDeclined(newStatus)) {
+      this.transactionService.decline(transaction).subscribe(declinedTransaction => {
+        transaction = declinedTransaction;
+      });
+    }
+  }
+
+  private isAccepted(status: string): boolean {
+    return status === 'ACCEPTED';
+  }
+
+  private isDeclined(status: string): boolean {
+    return status === 'DECLINED';
   }
 }
