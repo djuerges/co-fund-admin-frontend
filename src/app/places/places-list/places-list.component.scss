@@ -1,9 +1,14 @@
 @import "../../../theme";
 
+.table-row {
+  padding: 16px 0;
+}
+
 .status-color-cell {
   flex: 0 0 50px;
 }
 
 .place-link {
   margin-right: 1em;
+  color: map-get($purple-palette, 500);
 }

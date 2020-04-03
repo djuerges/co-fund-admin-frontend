@@ -10,7 +10,7 @@
 
   <!-- Company Definition -->
   <ng-container matColumnDef="company">
-    <mat-header-cell *matHeaderCellDef>Company</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
     <mat-cell *matCellDef="let row">
       <strong>{{row.company}}</strong><br>
     </mat-cell>
@@ -18,7 +18,7 @@
 
   <!-- Address Definition -->
   <ng-container matColumnDef="address">
-    <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>Adresse</mat-header-cell>
     <mat-cell *matCellDef="let row">
 
       <a mat-icon-button [attr.href]="row | placeLink" target="_blank">
@@ -43,9 +43,9 @@
 
     <mat-cell *matCellDef="let row">
       <mat-select [(value)]="row.status" (selectionChange)="changeStatus($event, row)">
-        <mat-option value="NEW">Neu</mat-option>
+        <mat-option value="NEW" disabled>Neu</mat-option>
         <mat-option value="CONTACTED">Kontaktiert</mat-option>
-        <mat-option value="ACTIVE">Aktiv</mat-option>
+        <mat-option value="ACTIVE" disabled>Aktiv</mat-option>
         <mat-option value="BLOCKED">Blockiert</mat-option>
       </mat-select>
     </mat-cell>
@@ -53,5 +53,5 @@
 
   <!-- Header and Row Declarations -->
   <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: columns"></mat-row>
+  <mat-row class="table-row" *matRowDef="let row; columns: columns"></mat-row>
 </mat-table>

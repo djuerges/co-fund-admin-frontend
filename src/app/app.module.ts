@@ -8,10 +8,12 @@ import { MaterialModule } from './material/material.module';
 import { TransactionModule } from './transaction/transaction.module';
 import { PlacesModule } from './places/places.module';
 import { AuthModule } from './auth/auth.module';
+import { StatisticComponent } from './statistic/statistic.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StatisticComponent
   ],
   imports: [
     BrowserModule,

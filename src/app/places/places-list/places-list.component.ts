@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {MatSelectChange} from '@angular/material/select';
-import {Transaction} from '../../transaction/transaction';
 import { Place } from '../place';
 import { PlaceService } from '../place.service';
 import { Observable } from 'rxjs';
