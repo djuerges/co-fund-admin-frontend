@@ -33,7 +33,7 @@
 
   <!-- ID Definition -->
   <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef>Google Place ID</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
     <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
   </ng-container>
 
@@ -42,7 +42,7 @@
     <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
 
     <mat-cell *matCellDef="let row">
-      <mat-select [(value)]="row.status" (selectionChange)="changeStatus(row)">
+      <mat-select [(value)]="row.status" (selectionChange)="changeStatus($event, row)">
         <mat-option value="NEW">Neu</mat-option>
         <mat-option value="CONTACTED">Kontaktiert</mat-option>
         <mat-option value="ACTIVE">Aktiv</mat-option>

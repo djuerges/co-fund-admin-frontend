@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {MatSelectChange} from '@angular/material/select';
 import {Transaction} from '../../transaction/transaction';
 import { Place } from '../place';
 import { PlaceService } from '../place.service';
@@ -22,7 +23,24 @@ export class PlacesListComponent implements OnInit {
     this.data$ = this.placeService.getAll();
   }
 
-  changeStatus(transaction: Transaction) {
-    console.log(transaction);
+  changeStatus(event: MatSelectChange, place: Place) {
+    const newStatus = event.value;
+    if (this.isApprove(newStatus)) {
+      this.placeService.approve(place).subscribe(approvedPlace => {
+        place = approvedPlace;
+      });
+    } else if (this.isBlocked(newStatus)) {
+      this.placeService.block(place).subscribe(blockedPlace => {
+        place = blockedPlace;
+      });
+    }
+  }
+
+  private isApprove(status: string): boolean {
+    return status === 'CONTACTED';
+  }
+
+  private isBlocked(status: string): boolean {
+    return status === 'BLOCKED';
   }
 }
