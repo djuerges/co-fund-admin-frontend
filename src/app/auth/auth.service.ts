@@ -13,7 +13,7 @@ export class AuthService {
   redirectUrl: string;
 
   constructor(private httpClient: HttpClient) {}
-  // Provide username and password for authentication, and once authentication is successful, 
+  // Provide token for authentication, and once authentication is successful, 
   //store JWT token in session
 
   private saveToken(token: string): void {
@@ -21,9 +21,9 @@ export class AuthService {
     sessionStorage.setItem("token", tokenStr);
   }
 
-  login(user : TokenPayload) {
+  login(token : TokenPayload) {
     return this.httpClient
-      .post<TokenResponse>("/api/auth", user)
+      .post<TokenResponse>("/api/auth", token)
       .pipe(
         map((data : TokenResponse) => {
           if (data.token) {
@@ -42,11 +42,14 @@ export class AuthService {
   logout() {
     sessionStorage.removeItem("token");
   }
+
+  register(email) {
+    return this.httpClient.post<TokenResponse>("/api/admin/signin", {email: email});
+  }
 }
 
 export interface TokenPayload {
-  username: string;
-  password: string;
+  token: string;
 }
 
 interface TokenResponse {

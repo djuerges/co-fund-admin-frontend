@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
   credentials: TokenPayload = {
-    username: '',
-    password: ''
+    token: ''
   };
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -23,5 +22,9 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.authService.login(this.credentials).subscribe(() => this.router.navigateByUrl(this.authService.redirectUrl || '/places'));
+  }
+
+  go(url) {
+    this.router.navigateByUrl(url)
   }
 }
