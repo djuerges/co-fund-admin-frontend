@@ -1,3 +1,4 @@
+import { TokenPayload } from './../auth.service';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
@@ -8,7 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class LoginComponent implements OnInit {
+  credentials: TokenPayload = {
+    username: '',
+    password: ''
+  };
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -16,6 +22,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.authService.login().subscribe(() => this.router.navigateByUrl(this.authService.redirectUrl || '/places'));
+    this.authService.login(this.credentials).subscribe(() => this.router.navigateByUrl(this.authService.redirectUrl || '/places'));
   }
 }

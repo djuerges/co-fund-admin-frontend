@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 
@@ -9,12 +10,13 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   logout(): void {
     this.authService.logout();
+    this.router.navigateByUrl('/login');
   }
 }
