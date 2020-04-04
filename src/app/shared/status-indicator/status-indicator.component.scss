@@ -1,3 +1,8 @@
+.status-container {
+  display: flex;
+  align-items: center;
+}
+
 .status-color {
   height: 20px;
   width: 20px;
@@ -6,7 +11,8 @@
 
   &.new,
   &.pending {
-    background-color: #ccc;
+    border: 1px solid #ccc;
+    background-color: #fff;
   }
 
   &.contacted,
@@ -23,4 +29,8 @@
   &.declined {
     background-color: #D63541;
   }
+}
+
+.text {
+  margin-left: 16px;
 }

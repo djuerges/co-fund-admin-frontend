@@ -4,7 +4,7 @@
   <ng-container matColumnDef="status-color">
     <mat-header-cell class="status-color-cell" *matHeaderCellDef></mat-header-cell>
     <mat-cell class="status-color-cell" *matCellDef="let row">
-      <cofund-status-indicator [status]="row.status.toLowerCase()"></cofund-status-indicator>
+      <cofund-status-indicator [status]="row.status.toLowerCase()" *ngIf="row.status"></cofund-status-indicator>
     </mat-cell>
   </ng-container>
 
@@ -31,10 +31,18 @@
 
     <mat-cell *matCellDef="let row">
       <mat-select [(value)]="row.status" (selectionChange)="changeStatus($event, row)">
-        <mat-option value="PENDING" disabled>Warte auf Freigabe</mat-option>
-        <mat-option value="ACCEPTED">Akzeptiert</mat-option>
-        <mat-option value="PAID" disabled>Ausgezahlt</mat-option>
-        <mat-option value="DECLINED">Abgelehnt</mat-option>
+        <mat-option value="PENDING" disabled>
+          <cofund-status-indicator [status]="'pending'" [text]="'Warte auf Freigabe'"></cofund-status-indicator>
+        </mat-option>
+        <mat-option value="ACCEPTED">
+          <cofund-status-indicator [status]="'accepted'" [text]="'Akzeptiert'"></cofund-status-indicator>
+        </mat-option>
+        <mat-option value="PAID" disabled>
+          <cofund-status-indicator [status]="'paid'" [text]="'Ausgezahlt'"></cofund-status-indicator>
+        </mat-option>
+        <mat-option value="DECLINED">
+          <cofund-status-indicator [status]="'declined'" [text]="'Abgelehnt'"></cofund-status-indicator>
+        </mat-option>
       </mat-select>
     </mat-cell>
   </ng-container>

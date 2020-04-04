@@ -12,6 +12,9 @@ export class StatusIndicatorComponent implements OnInit {
   @Input()
   status: string;
 
+  @Input()
+  text?: string;
+
   constructor() { }
 
   ngOnInit(): void {

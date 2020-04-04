@@ -4,7 +4,7 @@
   <ng-container matColumnDef="status-color">
     <mat-header-cell class="status-color-cell" *matHeaderCellDef></mat-header-cell>
     <mat-cell class="status-color-cell" *matCellDef="let row">
-      <cofund-status-indicator [status]="row.status.toLowerCase()"></cofund-status-indicator>
+      <cofund-status-indicator [status]="row.status.toLowerCase()" *ngIf="row.status"></cofund-status-indicator>
     </mat-cell>
   </ng-container>
 
@@ -43,10 +43,18 @@
 
     <mat-cell *matCellDef="let row">
       <mat-select [(value)]="row.status" (selectionChange)="changeStatus($event, row)">
-        <mat-option value="NEW" disabled>Neu</mat-option>
-        <mat-option value="CONTACTED">Kontaktiert</mat-option>
-        <mat-option value="ACTIVE" disabled>Aktiv</mat-option>
-        <mat-option value="BLOCKED">Blockiert</mat-option>
+        <mat-option value="NEW" disabled>
+          <cofund-status-indicator [status]="'new'" [text]="'Neu'"></cofund-status-indicator>
+        </mat-option>
+        <mat-option value="CONTACTED">
+          <cofund-status-indicator [status]="'contacted'" [text]="'Kontaktiert'"></cofund-status-indicator>
+        </mat-option>
+        <mat-option value="ACTIVE" disabled>
+          <cofund-status-indicator [status]="'active'" [text]="'Aktiv'"></cofund-status-indicator>
+        </mat-option>
+        <mat-option value="BLOCKED">
+          <cofund-status-indicator [status]="'blocked'" [text]="'Blockiert'"></cofund-status-indicator>
+        </mat-option>
       </mat-select>
     </mat-cell>
   </ng-container>
