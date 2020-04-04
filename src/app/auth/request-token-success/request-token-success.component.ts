@@ -2,12 +2,12 @@ import { Router } from '@angular/router';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'cofund-register-success',
-  templateUrl: './register-success.component.html',
-  styleUrls: ['./register-success.component.scss'],
+  selector: 'cofund-token-request-success',
+  templateUrl: './request-token-success.component.html',
+  styleUrls: ['./request-token-success.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegisterSuccessComponent implements OnInit {
+export class RequestTokenSuccessComponent implements OnInit {
 
   constructor(public router : Router) { }
 

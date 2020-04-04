@@ -1,7 +1,8 @@
-import { RegisterSuccessComponent } from './auth/register-success/register-success.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {RequestTokenSuccessComponent} from './auth/request-token-success/request-token-success.component';
+import {RequestTokenComponent} from './auth/request-token/request-token.component';
+import {PayoutListComponent} from './payout/payout-list/payout-list.component';
 import {StatisticComponent} from './statistic/statistic.component';
 import { TransactionListComponent } from './transaction/transaction-list/transaction-list.component';
 import { PlacesListComponent } from './places/places-list/places-list.component';
@@ -12,14 +13,14 @@ import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [{
   path: 'login',
   component: LoginComponent,
-}, 
-{
-  path: 'register',
-  component: RegisterComponent,
 },
 {
-  path: 'register-success',
-  component: RegisterSuccessComponent,
+  path: 'request-token',
+  component: RequestTokenComponent,
+},
+{
+  path: 'request-token-success',
+  component: RequestTokenSuccessComponent,
 },
 {
   path: '',
@@ -29,8 +30,9 @@ const routes: Routes = [{
     path: '',
     canActivateChild: [AuthGuard],
     children: [
-      { path: 'transactions', component: TransactionListComponent },
       { path: 'places', component: PlacesListComponent },
+      { path: 'transactions', component: TransactionListComponent },
+      { path: 'payouts', component: PayoutListComponent },
       { path: 'statistics', component: StatisticComponent }
     ]
   }]

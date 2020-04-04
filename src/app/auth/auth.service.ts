@@ -13,19 +13,18 @@ export class AuthService {
   redirectUrl: string;
 
   constructor(private httpClient: HttpClient) {}
-  // Provide token for authentication, and once authentication is successful, 
-  //store JWT token in session
+  // Provide token for authentication, and once authentication is successful, store JWT token in session
 
   private saveToken(token: string): void {
-    let tokenStr = "Bearer " + token;
-    sessionStorage.setItem("token", tokenStr);
+    const tokenStr = 'Bearer ' + token;
+    sessionStorage.setItem('token', tokenStr);
   }
 
-  login(token : TokenPayload) {
+  login(token: TokenPayload) {
     return this.httpClient
-      .post<TokenResponse>("/api/auth", token)
+      .post<TokenResponse>('/api/auth', token)
       .pipe(
-        map((data : TokenResponse) => {
+        map((data: TokenResponse) => {
           if (data.token) {
             this.saveToken(data.token);
           }
@@ -35,16 +34,16 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    let token = sessionStorage.getItem("token");
+    const token = sessionStorage.getItem('token');
     return !(token === null);
   }
 
   logout() {
-    sessionStorage.removeItem("token");
+    sessionStorage.removeItem('token');
   }
 
-  register(email) {
-    return this.httpClient.post<TokenResponse>("/api/admin/signin", {email: email});
+  requestToken(email) {
+    return this.httpClient.post<TokenResponse>('/api/admin/signin', {email: email});
   }
 }
 

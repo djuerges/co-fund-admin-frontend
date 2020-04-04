@@ -9,7 +9,7 @@
   </ng-container>
 
   <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef>Zahlungs-ID</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>Auszahlungs-ID</mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
   </ng-container>
 
@@ -28,7 +28,23 @@
 
   <ng-container matColumnDef="status">
     <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-select [(value)]="row.status" (selectionChange)="changeStatus($event, row)">
+        <mat-option value="PENDING" disabled>
+          <cofund-status-indicator [status]="'pending'" [text]="'Warte auf Freigabe'"></cofund-status-indicator>
+        </mat-option>
+        <mat-option value="ACCEPTED">
+          <cofund-status-indicator [status]="'accepted'" [text]="'Akzeptiert'"></cofund-status-indicator>
+        </mat-option>
+        <mat-option value="PAID" disabled>
+          <cofund-status-indicator [status]="'paid'" [text]="'Ausgezahlt'"></cofund-status-indicator>
+        </mat-option>
+        <mat-option value="DECLINED">
+          <cofund-status-indicator [status]="'declined'" [text]="'Abgelehnt'"></cofund-status-indicator>
+        </mat-option>
+      </mat-select>
+    </mat-cell>
+
   </ng-container>
 
   <!-- Header and Row Declarations -->

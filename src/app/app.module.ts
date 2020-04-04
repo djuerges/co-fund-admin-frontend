@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
+import {PayoutModule} from './payout/payout.module';
 import { TransactionModule } from './transaction/transaction.module';
 import { PlacesModule } from './places/places.module';
 import { AuthModule } from './auth/auth.module';
@@ -23,8 +24,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     MaterialModule,
     AuthModule,
+    PlacesModule,
     TransactionModule,
-    PlacesModule
+    PayoutModule
   ],
   providers: [
     {

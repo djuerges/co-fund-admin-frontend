@@ -3,12 +3,12 @@ import { AuthService } from './../auth.service';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'cofund-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  selector: 'cofund-request-token',
+  templateUrl: './request-token.component.html',
+  styleUrls: ['./request-token.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegisterComponent implements OnInit {
+export class RequestTokenComponent implements OnInit {
 
   credentials = {
     email: ''
@@ -19,9 +19,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  register(): void {
-    console.log(this.credentials.email);
-    this.authService.register(this.credentials.email).subscribe(() => this.router.navigateByUrl('/register-success'));
+  requestToken(): void {
+    this.authService.requestToken(this.credentials.email).subscribe(() => this.router.navigateByUrl('/request-token-success'));
   }
 
 }
