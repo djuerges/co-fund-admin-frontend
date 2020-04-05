@@ -9,18 +9,15 @@ export class StatisticService {
 
   constructor(private http: HttpClient) { }
 
-  getSum(): Observable<number> {
-    return of(10786);
-    // return this.http.get<number>('/api/admin/transactions/sum');
+  getPlacesCount(): Observable<number> {
+    return this.http.get<number>('/api/admin/statistics/places/count');
   }
 
-  getDonorCount(): Observable<number> {
-    return of(231);
-    // return this.http.get<number>('/api/admin/transactions/donorcount');
+  getTransactionsCount(): Observable<number> {
+    return this.http.get<number>('/api/admin/statistics/transactions/count');
   }
 
-  getPlaceCount(): Observable<number> {
-    return of(89);
-    // return this.http.get<number>('/api/admin/transactions/placecount');
+  getTransactionsSum(): Observable<number> {
+    return this.http.get<number>('/api/admin/statistics/transactions/sum');
   }
 }

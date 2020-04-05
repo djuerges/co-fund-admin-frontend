@@ -10,15 +10,15 @@ import {StatisticService} from './statistic.service';
 })
 export class StatisticComponent implements OnInit {
 
-  sum$: Observable<number>;
-  donorCount$: Observable<number>;
   placeCount$: Observable<number>;
+  transactionsCount$: Observable<number>;
+  transactionsSum$: Observable<number>;
 
   constructor(private statisticService: StatisticService) { }
 
   ngOnInit(): void {
-    this.sum$ = this.statisticService.getSum();
-    this.donorCount$ = this.statisticService.getDonorCount();
-    this.placeCount$ = this.statisticService.getPlaceCount();
+    this.placeCount$ = this.statisticService.getPlacesCount();
+    this.transactionsCount$ = this.statisticService.getTransactionsCount();
+    this.transactionsSum$ = this.statisticService.getTransactionsSum();
   }
 }

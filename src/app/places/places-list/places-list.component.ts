@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class PlacesListComponent implements OnInit {
 
-  readonly columns: string[] = ['status-color', 'company', 'address', 'id', 'status'];
+  readonly columns: string[] = ['status-color', 'company', 'address', 'id', 'status', 'pdf'];
 
   data$: Observable<Place[]>;
 
@@ -24,7 +24,7 @@ export class PlacesListComponent implements OnInit {
 
   changeStatus(event: MatSelectChange, place: Place) {
     const newStatus = event.value;
-    if (this.isApprove(newStatus)) {
+    if (this.isContacted(newStatus)) {
       this.placeService.approve(place).subscribe(approvedPlace => {
         place = approvedPlace;
       });
@@ -35,8 +35,23 @@ export class PlacesListComponent implements OnInit {
     }
   }
 
-  private isApprove(status: string): boolean {
+  downloadPdf(place: Place) {
+    this.placeService.getInvitationLink(place).subscribe(invitationLink => {
+      const url = invitationLink.link;
+      window.open(url.startsWith('http') ? url : 'http://localhost:4572/cofund/' + url);
+    });
+  }
+
+  hasPdf(status: string): boolean {
+    return this.isActive(status) || this.isContacted(status);
+  }
+
+  private isContacted(status: string): boolean {
     return status === 'CONTACTED';
+  }
+
+  private isActive(status: string): boolean {
+    return status === 'ACTIVE';
   }
 
   private isBlocked(status: string): boolean {

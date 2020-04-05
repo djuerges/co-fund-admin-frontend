@@ -59,6 +59,16 @@
     </mat-cell>
   </ng-container>
 
+  <!-- PDF -->
+  <ng-container matColumnDef="pdf">
+    <mat-header-cell *matHeaderCellDef>Invitation</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <a (click)="downloadPdf(row)" target="_blank" *ngIf="hasPdf(row.status)">
+        <button mat-stroked-button color="accent">download</button>
+      </a>
+    </mat-cell>
+  </ng-container>
+
   <!-- Header and Row Declarations -->
   <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
   <mat-row class="table-row" *matRowDef="let row; columns: columns"></mat-row>

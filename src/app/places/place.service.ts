@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {InvitationLink} from './invitation-link';
 import { Place } from './place';
 import { Observable, of } from 'rxjs';
 
@@ -20,5 +21,9 @@ export class PlaceService {
 
   block(place: Place): Observable<Place> {
     return this.http.put<Place>(`/api/admin/places/${place.id}/block`, place);
+  }
+
+  getInvitationLink(place: Place): Observable<InvitationLink> {
+    return this.http.get<InvitationLink>(`/api/admin/places/${place.id}/invitation`);
   }
 }
