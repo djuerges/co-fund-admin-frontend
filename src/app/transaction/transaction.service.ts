@@ -1,7 +1,8 @@
 import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Place} from '../places/place';
 import {Transaction} from './transaction';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,14 @@ export class TransactionService {
 
   getAll(): Observable<Transaction[]> {
     return this.http.get<Transaction[]>('/api/admin/transactions');
+  }
+
+  getAllByPlace(place: Place): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`/api/admin/transactions/place/${place.id}`);
+  }
+
+  getSummaryByPlace(place: Place): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`/api/admin/transactions/place/${place.id}/sum`);
   }
 
   accept(transaction: Transaction): Observable<Transaction> {
